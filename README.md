@@ -6,7 +6,7 @@ superhero.html
 
 table01.html
 1. html 태그로 table을 만들수 있는가?
-2. table 태그의 구조를 할고 있는가?
+2. table 태그의 구조를 알고 있는가?
 <!--table	table전체를 감싸는 태그-->
 <!--caption	table의 제목이나 설명을 작성하는 태그. 테이블 가로폭의 가운데 오는 것이 기본-->
 <!--tr	테이블의 행을 의미하는 태그. 자손으로 th나 td가 반드시 있어야 한다.-->
