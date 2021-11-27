@@ -1,0 +1,104 @@
+<!--1. JSON 파일을 불러 올수 있는가?-->
+<!--2. JSON 파일 데이터 구조에 맞게 데이터를 다룰수 있는가?-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    div {
+    background-color: lightgreen;
+    border: 1px solid black;
+    display: flex;
+        }
+</style>
+
+<div id = "squad">
+
+</div>
+
+<div>
+    <div id = "member1">
+
+    </div>
+
+    <div id = "member2">
+
+    </div>
+
+    <div id = "member3">
+
+    </div>
+
+
+</div>
+
+
+
+
+<script>
+    var requestURL = 'http://localhost:5555/211122/superhero.json'
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+
+    request.onload = function() {
+        var superHeroes = request.response;
+
+        let d = document.querySelector("#squad")
+        let a = document.querySelector("#member1")
+        let b = document.querySelector("#member2")
+        let c = document.querySelector("#member3")
+        let squad = ''
+        let strmem1 =''
+        let strmem2 =''
+        let strmem3 =''
+
+        squad =
+            `<ul>
+                 <li>Active: ${superHeroes.active}</li>
+                 <li>Form: ${superHeroes.formed}</li>
+                 <li>Hometown: ${superHeroes.homeTown}</li>
+            </ul>`
+
+        strmem1 =  `<ul>
+                 <li>Member1</li>
+                 <li>Name: ${superHeroes.members[0].name}</li>
+                 <li>Age: ${superHeroes.members[0].age}</li>
+                 <li>SecretIdentity: ${superHeroes.members[0].secretIdentity}</li>
+                 <li>Powers: ${superHeroes.members[0].powers}</li>
+            </ul>`
+
+strmem2 =  `<ul>
+                 <li>Member1</li>
+                 <li>Name: ${superHeroes.members[1].name}</li>
+                 <li>Age: ${superHeroes.members[1].age}</li>
+                 <li>SecretIdentity: ${superHeroes.members[1].secretIdentity}</li>
+                 <li>Powers: ${superHeroes.members[1].powers}</li>
+            </ul>`
+
+strmem3 =  `<ul>
+                 <li>Member1</li>
+                 <li>Name: ${superHeroes.members[2].name}</li>
+                 <li>Age: ${superHeroes.members[2].age}</li>
+                 <li>SecretIdentity: ${superHeroes.members[2].secretIdentity}</li>
+                 <li>Powers: ${superHeroes.members[2].powers}</li>
+            </ul>`
+
+
+        a.innerHTML = strmem1
+        b.innerHTML = strmem2
+        c.innerHTML = strmem3
+        d.innerHTML = squad
+    }
+
+</script>
+
+
+</body>
+</html>
